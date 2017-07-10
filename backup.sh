@@ -43,6 +43,7 @@ fi
 # sync current data
 rsync -Raze "ssh -p ${scpport} -i ${scpkeyfile}" \
   --delete \
+  --copy-links \
   --link-dest=../${scppath}.1 \
   --exclude ${exclude[*]} ${backup[*]} ${scpuser}@${scphost}:${scppath}.0
 
